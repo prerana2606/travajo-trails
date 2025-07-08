@@ -95,9 +95,9 @@ app.all("/*splax", (req, res, next) => {
 app.use((err, req, res, next) => {
     let {statusCode=500, message="Something went wrong"} = err;
     res.status(statusCode).render("error.ejs", {err});
-    // res.status(statusCode).send(message);
 });
 
-// app.listen("8000", () => {
-//     console.log("server is listening to port: 8000");
-// });
+const PORT = process.env.PORT || 8000;
+app.listen(PORT, () => {
+    console.log(`✅ Server is listening on port: ${PORT}`);
+});
